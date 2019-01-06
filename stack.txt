@@ -1,0 +1,47 @@
+编号	符号栈		动作
+1	[]	移入
+2	[{]	移入
+3	[{, decls]	decls->空
+4	[{, decls]	移入
+5	[{, decls, int]	type->basic
+6	[{, decls, type]	移入
+7	[{, decls, type, i]	移入
+8	[{, decls, type, i, ;]	decl->type id ;
+9	[{, decls, decl]	decls->decls decl 
+10	[{, decls]	移入
+11	[{, decls, int]	type->basic
+12	[{, decls, type]	移入
+13	[{, decls, type, j]	移入
+14	[{, decls, type, j, ;]	decl->type id ;
+15	[{, decls, decl]	decls->decls decl 
+16	[{, decls]	stmts>空
+17	[{, decls, stmts]	移入
+18	[{, decls, stmts, i]	loc->id
+19	[{, decls, stmts, loc]	移入
+20	[{, decls, stmts, loc, =]	移入
+21	[{, decls, stmts, loc, =, 1]	factor->num
+22	[{, decls, stmts, loc, =, factor]	term->unary
+23	[{, decls, stmts, loc, =, term]	expr->term
+24	[{, decls, stmts, loc, =, expr]	rel->expr
+25	[{, decls, stmts, loc, =, rel]	equality->rel
+26	[{, decls, stmts, loc, =, equality]	join->equality
+27	[{, decls, stmts, loc, =, join]	bool->join
+28	[{, decls, stmts, loc, =, bool]	移入
+29	[{, decls, stmts, loc, =, bool, ;]	stmt->loc = bool
+30	[{, decls, stmts, loc, stmt]	移入
+31	[{, decls, stmts, loc, stmt, j]	loc->id
+32	[{, decls, stmts, loc, stmt, loc]	移入
+33	[{, decls, stmts, loc, stmt, loc, =]	移入
+34	[{, decls, stmts, loc, stmt, loc, =, 1]	factor->num
+35	[{, decls, stmts, loc, stmt, loc, =, factor]	term->unary
+36	[{, decls, stmts, loc, stmt, loc, =, term]	expr->term
+37	[{, decls, stmts, loc, stmt, loc, =, expr]	rel->expr
+38	[{, decls, stmts, loc, stmt, loc, =, rel]	equality->rel
+39	[{, decls, stmts, loc, stmt, loc, =, equality]	join->equality
+40	[{, decls, stmts, loc, stmt, loc, =, join]	bool->join
+41	[{, decls, stmts, loc, stmt, loc, =, bool]	移入
+42	[{, decls, stmts, loc, stmt, loc, =, bool, ;]	stmt->loc = bool
+43	[{, decls, stmts, loc, stmt, loc, stmt]	移入
+44	[{, decls, stmts, loc, stmt, loc, stmt, }]	block->{ decls stmts }
+45	[{, decls, stmts, loc, block]	program->block
+46	[{, decls, stmts, loc, program]	接受
